@@ -17,7 +17,7 @@ var path = {
     dest: 'src/images'
   },
   sass: {
-    src: ['build/sass/styles.scss'],
+    src: ['build/sass/**/*.scss'],
     dest: 'src/css',
     destSass: 'src/sass'
   },
@@ -28,6 +28,10 @@ var path = {
   html: {
     src: ['build/*.html'],
     dest: 'src/'
+  },
+  vendors: {
+    src: ['build/vendors/**/*.*'],
+    dest: 'src/vendors'
   }
 }
 
@@ -50,7 +54,12 @@ gulp.task('html', function() {
   .pipe(gulp.dest(path.html.dest))
 })
 
-gulp.task('javascript', function(){
+gulp.task('vendors', function(){
+  gulp.src(path.vendors.src)
+    .pipe(gulp.dest(path.vendors.dest))
+});
+
+gulp.task('javascript', ['vendors'], function(){
   gulp.src(path.javascript.src)
     .pipe(plugins.plumber())
     .pipe(plugins.if(compress, plugins.concat('scripts.js')))
@@ -59,9 +68,13 @@ gulp.task('javascript', function(){
 	  .pipe(plugins.if(browser, browserSync.stream()))
 });
 
-gulp.task('sass', function () {
-  gulp.src(path.sass.src)
+gulp.task('sass-copy', function () {
+  return gulp.src(path.sass.src)
     .pipe(gulp.dest(path.sass.destSass))
+});
+
+gulp.task('sass', ['sass-copy'], function () {
+  gulp.src(path.sass.src)
     .pipe(plugins.plumber())
     .pipe(plugins.if(compress, plugins.sass({ outputStyle : 'compressed' }), plugins.sass({ outputStyle : 'expanded' })))
     .pipe(gulp.dest(path.sass.dest))
