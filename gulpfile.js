@@ -1,5 +1,6 @@
 var compress = false;
 var browser  = true;
+var debug    = false;
 
 var gulp        = require('gulp'),
     browserSync = require('browser-sync').create(),
@@ -39,7 +40,9 @@ path.watch = {
   sass:       ['build/sass/**/styles.scss'],
   images:     ['build/images/**/*.*'],
   javascript: ['build/js/**/*.js'],
-  html:       ['build/*.html']
+  html:       ['build/*.html'],
+  maps:       ['src/css/**/*.map']
+
 }
 
 path.change = ['src/*.html'];
@@ -73,10 +76,17 @@ gulp.task('sass-copy', function () {
     .pipe(gulp.dest(path.sass.destSass))
 });
 
-gulp.task('sass', ['sass-copy'], function () {
+gulp.task('sass-maps-clean', function() {
+  return gulp.src(path.watch.maps)
+    .pipe(plugins.clean())
+});
+
+gulp.task('sass', ['sass-copy'], function(){
   gulp.src(path.sass.src)
+    .pipe(plugins.if(debug, plugins.sourcemaps.init()))
     .pipe(plugins.plumber())
-    .pipe(plugins.if(compress, plugins.sass({ outputStyle : 'compressed' }), plugins.sass({ outputStyle : 'expanded' })))
+    .pipe(plugins.if(compress, plugins.sass({ outputStyle : 'compressed' }), plugins.sass({ outputStyle : 'expanded' }))) // Converts Sass to CSS with gulp-sass
+    .pipe(plugins.if(debug, plugins.sourcemaps.write(".")))
     .pipe(gulp.dest(path.sass.dest))
     .pipe(browserSync.stream())
 });
