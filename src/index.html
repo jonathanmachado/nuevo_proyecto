@@ -1,163 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="vendors/remodal/remodal.css">
-  <link rel="stylesheet" href="vendors/remodal/remodal-default-theme.css">
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="vendors/hero-slider/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+	<script src="vendors/hero-slider/js/modernizr.js"></script> <!-- Modernizr -->
+
+	<title>Hero Slideshow</title>
+</head>
 <body>
 
-  <div class="row">
-    <div class="small-6 columns">
-      <div class="slider-top">
-        <div>
-          <img src="http://placehold.it/704x450">
-          <a href="#modal">PLAY</a>
-        </div>
-        <div>
-          <img src="http://placehold.it/704x450">
-          <a href="#modal2">PLAY</a>
-        </div>
-      </div>
-    </div>
-  </div>
+	<section class="cd-hero">
+		<div class="cd-slider-nav">
+			<nav>
+				<span class="cd-marker item-1"></span>
+
+				<ul class="no-bullet">
+					<li class="selected"><a href="#0">Intro</a></li>
+					<li><a href="#0">Tech 1</a></li>
+					<li><a href="#0">Tech 2</a></li>
+					<li><a href="#0">Video</a></li>
+					<li><a href="#0">Image</a></li>
+				</ul>
+			</nav>
+		</div> <!-- .cd-slider-nav -->
+		<ul class="cd-hero-slider no-bullet">
+			<li class="selected">
+				<div class="cd-full-width">
+					<h2>Hero slider</h2>
+					<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
+					<a href="http://codyhouse.co/?p=675" class="cd-btn">Article &amp; Download</a>
+				</div> <!-- .cd-full-width -->
+			</li>
+
+			<li>
+				<div class="cd-half-width">
+					<h2>Slide title here</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
+					<a href="#0" class="cd-btn">Start</a>
+					<a href="#0" class="cd-btn secondary">Learn More</a>
+				</div> <!-- .cd-half-width -->
+
+				<div class="cd-half-width cd-img-container">
+					<img src="vendors/hero-slider/assets/tech-1.jpg" alt="tech 1">
+				</div> <!-- .cd-half-width.cd-img-container -->
+			</li>
+
+			<li>
+				<div class="cd-half-width cd-img-container">
+					<img src="vendors/hero-slider/assets/tech-2.jpg" alt="tech 2">
+				</div> <!-- .cd-half-width.cd-img-container -->
+
+				<div class="cd-half-width">
+					<h2>Slide title here</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
+					<a href="#0" class="cd-btn">Start</a>
+					<a href="#0" class="cd-btn secondary">Learn More</a>
+				</div> <!-- .cd-half-width -->
+
+			</li>
+
+			<li class="cd-bg-video">
+				<div class="cd-full-width">
+					<h2>Slide title here</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, explicabo.</p>
+					<a href="#0" class="cd-btn">Learn more</a>
+				</div> <!-- .cd-full-width -->
+
+				<div class="cd-bg-video-wrapper" data-video="vendors/hero-slider/assets/video/video">
+					<!-- video element will be loaded using jQuery -->
+				</div> <!-- .cd-bg-video-wrapper -->
+			</li>
+
+			<li>
+				<div class="cd-full-width">
+					<h2>Slide title here</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, explicabo.</p>
+					<a href="#0" class="cd-btn">Start</a>
+					<a href="#0" class="cd-btn secondary">Learn More</a>
+				</div> <!-- .cd-full-width -->
+			</li>
+		</ul> <!-- .cd-hero-slider -->
 
 
-  <div class="row show-for-medium-up">
-    <div class="small-12 columns">
-      <ul class="small-block-grid-5 no-padding-childrens items-slider">
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row show-for-medium-up">
-    <div class="small-12 columns">
-      <ul class="small-block-grid-5 no-padding-childrens items-slider2">
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-        <li><img src="http://placehold.it/204x250"></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row blue *hide-for-medium-up">
-      <div class="slider">
-      </div>
-  </div>
-
-  <div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
-    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
-    <div>
-      <h2 id="modal1Title">Remodal</h2>
-      <p id="modal1Desc">
-        Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin
-        with declarative state notation and hash tracking.
-      </p>
-    </div>
-    <br>
-    <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-    <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-  </div>
+	</section> <!-- .cd-hero -->
 
 
-  <div data-remodal-id="modal2" role="dialog" aria-labelledby="modal2Title" aria-describedby="modal2Desc">
-    <div>
-      <h2 id="modal2Title">Another one window</h2>
-      <p id="modal2Desc">
-        Hello!
-      </p>
-    </div>
-    <br>
-    <button data-remodal-action="confirm" class="remodal-confirm">Hello!</button>
-  </div>
-
-
-
-
-
-
-
-
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script type="text/javascript" src="vendors/foundation/foundation.js"></script>
-  <script type="text/javascript" src="vendors/foundation/foundation.topbar.js"></script>
-  <script type="text/javascript" src="vendors/slick/slick.min.js"></script>
-  <script type="text/javascript" src="vendors/remodal/remodal.js"></script>
-  <script type="text/javascript" src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
-  <script type="text/javascript">
-		$(document).foundation();
-    function getItems(element) {
-      return $(element).html().replace(/li/g, "div");
-    }
-    $(function () {
-
-      $('[data-remodal-id=modal2]').remodal({
-        modifier: 'with-red-theme',
-        closeOnEscape: false,
-        closeOnOutsideClick: false
-      });
-
-      $('.slider-top').slick({
-        infinite: true,
-        arrows: true,
-        speed: 300
-      });
-
-      $('.slider').slick({
-        infinite: true,
-        arrows: false,
-        speed: 300,
-        variableWidth: true
-      });
-      $('.slider').slick('slickAdd', getItems('.items-slider'));
-
-      /*
-       * Detact Mobile Browser
-       */
-      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-         $('html').addClass('ismobile');
-      }
-
-      /*
-       * Custom Scrollbars
-       */
-      function scrollbar(className, color, cursorWidth) {
-          $(className).niceScroll({
-              cursorcolor: color,
-              cursorborder: 0,
-              cursorborderradius: 0,
-              cursorwidth: cursorWidth,
-              bouncescroll: true,
-              mousescrollstep: 100
-          });
-      }
-
-      //Scrollbar for HTML(not mobile) but not for login page
-      if (!$('html').hasClass('ismobile')) {
-        scrollbar('html', 'rgba(0,0,0,0.3)', '5px');
-      }
-
-      $('#tabs2').tabulous({ effect: 'slideLeft' });
-
-    });
-	</script>
+<script src="vendors/hero-slider/js/jquery-2.1.1.js"></script>
+<script src="vendors/hero-slider/js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
