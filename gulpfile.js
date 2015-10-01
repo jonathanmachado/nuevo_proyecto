@@ -101,11 +101,11 @@ gulp.task('images', function () {
 });
 
 gulp.task('watch-sass', ['sass'], function(){
-  gulp.watch(path.watch.sass, ['sass']);
+  gulp.watch(path.sass.src, ['sass']);
 })
 
 
-gulp.task('watch', function(){
+gulp.task('watch', ['html', 'vendors', 'sass', 'images', 'javascript'], function(){
   if(browser){
     browserSync.init({
   	  server: {
@@ -115,6 +115,7 @@ gulp.task('watch', function(){
   }
   gulp.watch(path.watch.html, ['html']);
   gulp.watch(path.watch.sass, ['sass']);
+  gulp.watch(path.sass.src, ['watch-sass']);
   gulp.watch(path.watch.images, ['images']);
   gulp.watch(path.watch.javascript, ['javascript']);
   if(browser) {

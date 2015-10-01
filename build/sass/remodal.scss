@@ -1,0 +1,24 @@
+.remodal {  
+  &.with-red-theme {
+    background: #fff;
+    vertical-align: top;
+  }
+  &-bg {
+    &.with-red-theme {
+      &.remodal-is-opening,
+      &.remodal-is-opened {
+        filter: none;
+      }
+    }
+  }
+  &-wrapper {
+    &.with-red-theme {
+      padding: 80px 10px 0;
+    }
+  }
+  &-overlay {
+    &.with-red-theme {
+      background-color: #f44336;
+    }
+  }
+}

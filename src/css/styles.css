@@ -9791,6 +9791,24 @@ th.hide-for-touch {
   width: 100%;
 }
 
+.remodal.with-red-theme {
+  background: #fff;
+  vertical-align: top;
+}
+
+.remodal-bg.with-red-theme.remodal-is-opening,
+.remodal-bg.with-red-theme.remodal-is-opened {
+  filter: none;
+}
+
+.remodal-wrapper.with-red-theme {
+  padding: 80px 10px 0;
+}
+
+.remodal-overlay.with-red-theme {
+  background-color: #f44336;
+}
+
 .da-thumbs {
   list-style: none;
   width: 984px;
@@ -9999,6 +10017,10 @@ th.hide-for-touch {
 .no-padding,
 [class*="no-padding-childrens"] > * {
   padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
