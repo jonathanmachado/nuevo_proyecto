@@ -1,6 +1,6 @@
 var compress = false;
 var browser  = true;
-var debug    = false;
+var debug    = true;
 
 var gulp        = require('gulp'),
     browserSync = require('browser-sync').create(),
@@ -37,7 +37,7 @@ var path = {
 }
 
 path.watch = {
-  sass:       ['build/sass/**/styles.scss'],
+  sass:       ['build/sass/**/*.scss'],
   images:     ['build/images/**/*.*'],
   javascript: ['build/js/**/*.js'],
   html:       ['build/*.html'],

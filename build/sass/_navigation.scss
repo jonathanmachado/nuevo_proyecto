@@ -1,0 +1,23 @@
+$topbar-bg-color: $color-white;
+$topbar-bg: $color-white;
+
+$topbar-height: rem-calc(69);
+
+$nav-border: #e8ecee;
+
+$topbar-link-color: #2b4258;
+
+$topbar-divider-border-bottom: solid 1px #bfc6cd;
+
+@import "foundation/components/_top-bar";
+
+body {
+
+  .sticky {
+    border-bottom: 1px solid $nav-border;
+    .divider {
+      height: rem-calc(18);
+      margin-top: 11%;
+    }
+  }
+}
