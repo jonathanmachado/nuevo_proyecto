@@ -7,43 +7,70 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 
 <body>
-  <div class="contain-to-grid sticky">
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#"><img src="images/template/logo.png" alt="logo" /></a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
 
-      <section class="top-bar-section">
-        <!-- Left Nav Section -->
-        <ul class="left">
-          <li><a href="#">PROYECTS</a></li>
-          <li class="divider"></li>
-          <li><a href="#">HUMANITY</a></li>
-        </ul>
-      </section>
-    </nav>
-  </div>
-
-  <section>
-    <div class="row">
-      <div class="small-12 columns text-center">
-        Film & Video  -  Games
+  <div class="row">
+    <div class="small-6 columns">
+      <div class="slider-top">
+        <div>
+          <img src="http://placehold.it/704x450">
+          <a href="#">PLAY</a>
+        </div>
+        <div>
+          <img src="http://placehold.it/704x450">
+          <a href="#">PLAY</a>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
+
+  <div class="row show-for-medium-up">
+    <div class="small-12 columns">
+      <ul class="small-block-grid-5 no-padding-childrens items-slider">
+        <li><img src="http://placehold.it/204x250"></li>
+        <li><img src="http://placehold.it/204x250"></li>
+        <li><img src="http://placehold.it/204x250"></li>
+        <li><img src="http://placehold.it/204x250"></li>
+        <li><img src="http://placehold.it/204x250"></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row blue hide-for-medium-up">
+      <div class="slider">
+      </div>
+  </div>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="vendors/foundation/foundation.js"></script>
   <script src="vendors/foundation/foundation.topbar.js"></script>
+  <script type="text/javascript" src="vendors/slick/slick.min.js"></script>
   <script type="text/javascript">
 		$(document).foundation();
+    function getItems(element) {
+      return $(element).html().replace(/li/g, "div");
+    }
+    $(function () {
+      $('.slider-top').slick({
+        infinite: true,
+        arrows: true,
+        speed: 300
+      });
+
+      $('.slider').slick({
+        infinite: true,
+        arrows: false,
+        speed: 300,
+        variableWidth: true
+      });
+      $('.slider').slick('slickAdd', getItems('.items-slider'));
+    });
 	</script>
 </body>
 </html>

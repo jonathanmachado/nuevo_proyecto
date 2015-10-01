@@ -4,7 +4,7 @@ var debug    = true;
 
 var gulp        = require('gulp'),
     browserSync = require('browser-sync').create(),
-    plugins = require('gulp-load-plugins')({
+    plugins     = require('gulp-load-plugins')({
       scope: ['devDependencies']
     });
 
@@ -37,10 +37,11 @@ var path = {
 }
 
 path.watch = {
-  sass:       ['build/sass/**/*.scss'],
+  sass:       ['build/sass/**/styles.scss'],
   images:     ['build/images/**/*.*'],
   javascript: ['build/js/**/*.js'],
   html:       ['build/*.html'],
+  css:        ['src/css/styles.css'],
   maps:       ['src/css/**/*.map']
 
 }
@@ -88,7 +89,7 @@ gulp.task('sass', ['sass-copy'], function(){
     .pipe(plugins.if(compress, plugins.sass({ outputStyle : 'compressed' }), plugins.sass({ outputStyle : 'expanded' }))) // Converts Sass to CSS with gulp-sass
     .pipe(plugins.if(debug, plugins.sourcemaps.write(".")))
     .pipe(gulp.dest(path.sass.dest))
-    .pipe(browserSync.stream())
+    //.pipe(browserSync.stream())
 });
 
 gulp.task('images', function () {
@@ -104,7 +105,7 @@ gulp.task('watch-sass', ['sass'], function(){
 })
 
 
-gulp.task('watch', ['html', 'sass', 'images', 'javascript'], function(){
+gulp.task('watch', function(){
   if(browser){
     browserSync.init({
   	  server: {
@@ -116,8 +117,10 @@ gulp.task('watch', ['html', 'sass', 'images', 'javascript'], function(){
   gulp.watch(path.watch.sass, ['sass']);
   gulp.watch(path.watch.images, ['images']);
   gulp.watch(path.watch.javascript, ['javascript']);
-  if(browser)
+  if(browser) {
     gulp.watch(path.change).on("change", browserSync.reload);
+    gulp.watch(path.watch.css).on("change", browserSync.reload);
+  }
 })
 
 gulp.task('default', ['watch']);
