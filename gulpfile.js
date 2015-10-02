@@ -40,6 +40,7 @@ path.watch = {
   sass:       ['build/sass/**/styles.scss'],
   images:     ['build/images/**/*.*'],
   javascript: ['build/js/**/*.js'],
+  vendors:    ['build/vendors/**/*.*'],
   html:       ['build/*.html'],
   css:        ['src/css/styles.css'],
   maps:       ['src/css/**/*.map']
@@ -61,6 +62,7 @@ gulp.task('html', function() {
 gulp.task('vendors', function(){
   gulp.src(path.vendors.src)
     .pipe(gulp.dest(path.vendors.dest))
+    .pipe(plugins.if(browser, browserSync.stream()))
 });
 
 gulp.task('javascript', ['vendors'], function(){
@@ -115,6 +117,7 @@ gulp.task('watch', ['html', 'vendors', 'sass', 'images', 'javascript'], function
   }
   gulp.watch(path.watch.html, ['html']);
   gulp.watch(path.watch.sass, ['sass']);
+  gulp.watch(path.watch.vendors, ['vendors']);
   gulp.watch(path.sass.src, ['watch-sass']);
   gulp.watch(path.watch.images, ['images']);
   gulp.watch(path.watch.javascript, ['javascript']);

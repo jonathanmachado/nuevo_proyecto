@@ -1,0 +1,236 @@
+@import 'bourbon/bourbon'; // http://bourbon.io/
+
+@import '../partials/variables'; // colors, fonts etc...
+
+@import '../partials/mixins'; // custom mixins
+
+@import '../partials/layout'; // responsive grid and media queries
+
+/* --------------------------------
+Slider
+-------------------------------- */
+
+.cd-hero {
+	position: relative;
+}
+
+.cd-hero-slider {
+	position: relative;
+	//height: $intro-height-S;
+	overflow: hidden;
+
+	li {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		@include transform(translateX(100%));
+
+		&.selected {
+			/* this is the visible slide */
+			position: relative;
+			@include transform(translateX(0));
+		}
+
+		&.move-left {
+			/* slide hidden on the left */
+			@include transform(translateX(-100%));
+		}
+
+		&.is-moving,
+		&.selected {
+			/* the is-moving class is assigned to the slide which is moving outside the viewport */
+			@include transition(transform .5s);
+		}
+	}
+
+
+}
+
+/* --------------------------------
+
+Single slide style
+
+-------------------------------- */
+
+.cd-hero-slider {
+
+	.cd-full-width,
+	.cd-half-width {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		/* this padding is used to align the text */
+		padding-top: 100px;
+		padding-bottom: 100px;
+		//text-align: center;
+
+		/* Force Hardware Acceleration in WebKit */
+		@include backface-visibility(hidden);
+		@include transform(translateZ(0));
+	}
+
+	.cd-img-container {
+		/* hide image on mobile device */
+		display: none;
+
+		img {
+			position: absolute;
+			@include center;
+		}
+	}
+
+	.cd-bg-video-wrapper {
+		/* hide video on mobile device */
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		video {
+			/* you won't see this element in the html, but it will be injected using js */
+			display: block;
+			min-height: 100%;
+			min-width: 100%;
+			max-width: none;
+			height: auto;
+			width: auto;
+			position: absolute;
+			@include center;
+		}
+	}
+
+	@include MQ(M) {
+
+		.cd-bg-video-wrapper {
+			display: block;
+		}
+
+		.cd-img-container {
+			display: block;
+		}
+
+	}
+
+}
+
+/* --------------------------------
+
+Slider navigation
+
+-------------------------------- */
+
+.cd-slider-nav {
+	width: 100%;
+	z-index: 2;
+	//text-align: center;
+	height: 55px;
+	background-color: $color-2;
+
+	nav, ul, li, a {
+		height: 100%;
+	}
+
+	nav {
+		display: inline-block;
+		position: relative;
+	}
+
+	.cd-marker {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 60px;
+		height: 100%;
+		color: $color-2; //border-top
+		background-color: $color-2;
+		box-shadow: inset 0 2px 0 currentColor;
+		@include transition(transform .2s, box-shadow .2s);
+
+		&.item-2 {
+			@include transform(translateX(100%));
+		}
+
+		&.item-3 {
+			@include transform(translateX(200%));
+		}
+
+		&.item-4 {
+			@include transform(translateX(300%));
+		}
+
+		&.item-5 {
+			@include transform(translateX(400%));
+		}
+	}
+
+	ul {
+		@include clearfix;
+	}
+
+	li {
+		display: inline-block;
+		width: 60px;
+		float: left;
+
+		&.selected a {
+			color: $color-1;
+
+			.no-touch &:hover {
+				background-color: transparent;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+		padding-top: 35px;
+		font-size: 1rem;
+		font-weight: 700;
+		color: rgba(lighten($color-1, 20%), .5);
+		@include transition(background-color .2s);
+
+		.no-touch &:hover {
+			//background-color: rgba(darken($color-1, 20%), .5); //hover
+		}
+	}
+
+
+
+	@include MQ(M) {
+		height: 80px;
+
+		.cd-marker,
+		li {
+			width: 95px;
+		}
+
+	}
+}
+
+
+
+/* --------------------------------
+
+Javascript disabled
+
+-------------------------------- */
+.no-js .cd-hero-slider li {
+	display: none;
+
+	&.selected {
+		display: block;
+	}
+}
+
+.no-js .cd-slider-nav {
+	display: none;
+}
