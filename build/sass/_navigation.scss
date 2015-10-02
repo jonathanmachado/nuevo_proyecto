@@ -9,15 +9,110 @@ $topbar-link-color: #2b4258;
 
 $topbar-divider-border-bottom: solid 1px #bfc6cd;
 
+$topbar-menu-icon-color: $color-black;
+$topbar-menu-link-color-toggled: $color-black;
+$topbar-menu-icon-color-toggled: $color-black;
+
 @import "foundation/components/_top-bar";
 
 body {
 
   .sticky {
+    background-color: $color-white;
     border-bottom: 1px solid $nav-border;
     .divider {
       height: rem-calc(18);
-      margin-top: 11%;
+      margin-top: 15%;
+    }
+    .top-bar .toggle-topbar.menu-icon a {
+      padding: 0;
+      margin: 0 1rem;
+    }
+    .top-bar.expanded .toggle-topbar a {
+      padding: 0 2rem 0 1.4375rem;
+      span::after {
+        right: 10% !important;
+      }
+    }
+    .top-bar .toggle-topbar.menu-icon a span::after {
+      right: 30%;
+    }
+  }
+}
+
+
+@include respond-to(mobile) {
+  body {
+    .header-buttons-mobile {
+      li.action-links {
+        display: none;
+      }
+    }
+    .header-buttons {
+      display: none;
+    }
+  }
+}
+
+@include respond-to(mobile-only) {
+  body {
+    .top-bar {
+      .name > h1 > a {
+        float:left;
+        display: inline;
+        width: auto;
+      }
+    }
+    .divider {
+      display: none;
+    }
+    .header-buttons {
+      position: relative;
+      text-align: center;
+    }
+    .header-buttons-mobile li {
+      float: left;
+      span a {
+        display: inline !important;
+      }
+      .search-icon {
+
+      }
+    }
+    .top-bar-section {
+      .header-buttons {
+        display: block;
+        .search-icon {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+@include respond-to(mobile-landscape) {
+  body {
+    .expanded {
+      .header-buttons-mobile {
+        -webkit-transform: translateX(-50px);
+        -ms-transform: translateX(-50px);
+        -moz-transform: translateX(-50px);
+        -o-transform: translateX(-50px);
+        transform: translateX(-50px);
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        -o-transition: all .5s;
+        transition: all .5s;
+      }
+    }
+    .header-buttons-mobile {
+      li.action-links {
+        display: inline;
+      }
+    }
+    .top-bar-section {
+
     }
   }
 }

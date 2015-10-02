@@ -1,5 +1,6 @@
 @import "foundation/settings";
 @import "variables";
+@import "mixins";
 @import "normalize";
 @import "navigation";
 
@@ -20,6 +21,7 @@
 @import "../vendors/directionhover/jquery.hoverdir";
 
 @import "../vendors/hero-slider/scss/style";
+@import "../vendors/mega-site-navigation/scss/style";
 
 .row {
   padding-top: rem-calc(15);

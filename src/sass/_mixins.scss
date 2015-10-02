@@ -1,0 +1,185 @@
+// Import Variables
+@import "_Variables.scss";
+
+// Prefix
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+@mixin prefixArray($declarations, $prefixes: ()) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+  }
+}
+
+// Gradient
+@mixin gradient($startColor, $endColor, $orientation : vertical) {
+    background: #{$startColor};
+
+    @if $orientation == 'vertical' {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}');
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#{$endColor}), to(#{$startColor}));
+        background: -webkit-linear-gradient(top, #{$startColor}, #{$endColor});
+        background: -moz-linear-gradient(top, #{$startColor}, #{$endColor});
+        background: -ms-linear-gradient(top, #{$startColor}, #{$endColor});
+        background: -o-linear-gradient(top, #{$startColor}, #{$endColor});
+    } @else if $orientation == 'horizontal' {
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3e6ec', endColorstr='#{$endColor}',GradientType=1);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,#{$startColor}), color-stop(100%,#{$endColor}));
+        background: -webkit-linear-gradient(left,  #{$startColor} 0%,#{$endColor} 100%);
+        background: -moz-linear-gradient(left,  #{$startColor} 0%, #{$endColor} 100%);
+        background: -ms-linear-gradient(left, #{$startColor} 0%,#{$endColor} 100%);
+        background: -o-linear-gradient(left,  #{$startColor} 0%,#{$endColor} 100%);
+        background: linear-gradient(to right,  #{$startColor} 0%,#{$endColor} 100%);
+    }
+}
+
+// Transition
+@mixin transition($property, $time, $type) {
+    @include prefix(transition, $property $time $type, 'moz' 'o' 'webkit');
+}
+
+// Text-overflow
+@mixin text-overflow($type) {
+    @include prefix(text-overflow, $type, 'ms' 'o');
+}
+
+// Font-Face
+@mixin font-face($style-name, $family, $file, $weight: normal, $style: normal){
+  $filepath: "../../../Shared/" + $family + "/" + $file;
+  @font-face {
+    font: {
+      family: "#{$style-name}";
+      @if $weight {
+        weight: $weight;
+      }
+      @if $style {
+        style: $style;
+      }
+    }
+    src: url($filepath + ".eot");
+    src: url($filepath + ".eot?#iefix") format('embedded-opentype'),
+         url($filepath + ".woff") format('woff'),
+         url($filepath + ".ttf")  format('truetype'),
+         url($filepath + ".svg#" + $style-name + "") format('svg');
+  }
+}
+
+// Font-size
+@mixin font-size($size) {
+  @if unitless($size) {
+    $size: $size * 1px;
+  }
+
+  font-size: $size;
+  font-size: ($size / $base-font-size) * 1rem;
+}
+
+// Border-radius
+@mixin border-radius($radius : 3px){
+    @include prefix(border-radius, $radius, 'webkit' 'moz');
+}
+
+// Border-sizing
+@mixin box-sizing($type : box-sizing){
+    @include prefix(box-sizing, $type, 'moz' 'webkit');
+}
+
+// Buttons
+@mixin button {
+    font-family: "DIN", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: #FFF;
+    border: none;
+    @include gradient($button-normal-start, $button-normal-end);
+    &:hover {
+        color: #FFF;
+        @include gradient($button-normal-hover-start, $button-normal-hover-end);
+    }
+    &:active {
+        -webkit-box-shadow: inset 0 0 5px #888;
+        box-shadow: 0 0 5px #333 inset;
+    }
+    &.buy {
+        color: #333;
+        border: none;
+        @include gradient($button-buy-start, $button-buy-end);
+        &:hover {
+            @include gradient($button-buy-hover-start, $button-buy-hover-end);
+        }
+        &:active {
+            -webkit-box-shadow: inset 0 0 5px #888;
+            box-shadow: 0 0 5px #333 inset;
+        }
+    }
+    &.secondary {
+        color: #333;
+        border: none;
+        @include gradient($button-secondary-start, $button-secondary-end);
+        text-shadow: 0px 1px 1px #fff;
+        &:hover {
+            @include gradient($button-secondary-hover-start, $button-secondary-hover-end);
+        }
+        &:active {
+            -webkit-box-shadow: inset 0 0 5px #888;
+            box-shadow: 0 0 5px #333 inset;
+        }
+    }
+    &.alert {
+        color: #fff;
+        border: none;
+        @include gradient($button-alert-start, $button-alert-end);
+        text-shadow: 0px 1px 1px #fff;
+        &:hover {
+            @include gradient($button-alert-hover-start, $button-alert-hover-end);
+        }
+        &:active {
+            -webkit-box-shadow: inset 0 0 5px #888;
+            box-shadow: 0 0 5px #333 inset;
+        }
+    }
+}
+
+@mixin respond-to($media) {
+  @if $media == mobile-only {
+    @media only screen and (max-width: 40em) { @content; } // max-width 640px, mobile-only styles, use when QAing mobile issues
+  }
+  @else if $media == mobile-landscape {
+    @media only screen and (min-width: 28.8125em) { @content; } // min-width 641px, medium screens
+  }
+  @else if $media == medium {
+    @media only screen and (min-width: 40.063em) { @content; } // min-width 641px, medium screens
+  }
+  @else if $media == medium-landscape {
+    @media only screen and (min-width: 40.063em) and (max-width: 64em) { @content; } // min-width 641px and max-width 1024px, use when QAing tablet-only issues
+  }
+  @else if $media == large-up {
+    @media only screen and (min-width: 64em) { @content; } // min-width 1024px, large screens
+  }
+  @else if $media == large {
+    @media only screen and (min-width: 64.063em) { @content; } // min-width 1025px, large screens
+  }
+  @else if $media == large-landscape {
+    @media only screen and (min-width: 64.063em) and (max-width: 90em) { @content; } // min-width 1025px and max-width 1440px, use when QAing large screen-only issues
+  }
+  @else if $media == xlarge {
+    @media only screen and (min-width: 90.063em) { @content; } // min-width 1441px, xlarge screens
+  }
+  @else if $media == xlarge-landscape {
+    @media only screen and (min-width: 90.063em) and (max-width: 120em) { @content; } // min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues
+  }
+  @else if $media == xxlarge {
+    @media only screen and (min-width: 120.063em) { @content; } // min-width 1921px, xxlarge screens
+  }
+  @else {
+    @media only screen { @content; } // mobile screens
+  }
+}

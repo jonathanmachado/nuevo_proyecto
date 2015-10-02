@@ -4,66 +4,85 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="vendors/mega-site-navigation/css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+	<script src="vendors/mega-site-navigation/js/modernizr.js"></script> <!-- Modernizr -->
 
-	<link rel="stylesheet" href="vendors/hero-slider/css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
-	<script src="vendors/hero-slider/js/modernizr.js"></script> <!-- Modernizr -->
-
-	<title>Hero Slideshow</title>
+	<title>Mega-Site Navigation | CodyHouse</title>
 </head>
 <body>
-	<div class="row">
-		<div class="small-12 columns">
-			<section class="cd-hero">
-				<div class="cd-slider-nav">
-					<nav>
-						<span class="cd-marker item-1"></span>
 
-						<ul class="no-bullet">
-							<li class="selected"><a href="#1">Intro</a></li>
-							<li><a href="#2">Tech 1</a></li>
-						</ul>
-					</nav>
-				</div> <!-- .cd-slider-nav -->
-				<ul class="cd-hero-slider no-bullet">
-					<li class="selected">
-						<div class="cd-full-width">
-							<div class="content-item">
-								<h2>Hero slider</h2>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<p>A simple, responsive slideshow in CSS &amp; jQuery.</p>
-								<a href="http://codyhouse.co/?p=675" class="cd-btn">Article &amp; Download</a>
-							</div>
-						</div> <!-- .cd-full-width -->
-					</li>
+  <div class="contain-to-grid sticky">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#">My Site</a>
+            <ul class="no-bullet header-buttons-mobile right show-for-small-only">
+        			<li class="search-icon"><a class="search-trigger" href="#search">Search<span></span></a></li>
+              <li class="action-links">
+                <span>
+                  <a href="#">Login</a> / <a href="#">Register</a>
+                </span>
+              </li>
+        		</ul> <!-- header-buttons -->
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
 
-					<li>
-						<div class="cd-full-width">
-							<div class="content-item">
-								<h2>Slide title here</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consequatur cumque natus!</p>
-								<a href="#0" class="cd-btn">Start</a>
-								<a href="#0" class="cd-btn secondary">Learn More</a>
-							</div>
-						</div> <!-- .cd-half-width -->
-					</li>
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li><a href="#">LINK 1</a></li>
+          <li class="divider"></li>
+          <li><a href="#">LINK 2</a></li>
+        </ul>
 
-				</ul> <!-- .cd-hero-slider -->
+        <ul class="header-buttons right">
+    			<li class="search-icon"><a class="search-trigger" href="#search">Search<span></span></a></li>
+          <li>
+            <span>
+              <a href="#">Login</a> / <a href="#">Register</a>
+            </span>
+          </li>
+    		</ul> <!-- header-buttons -->
+      </section>
+    </nav>
+  </div>
 
 
-			</section> <!-- .cd-hero -->
+	<div>
+		<!-- your content here -->
+    asdasdasd
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolores optio minima perspiciatis ea velit quidem consequatur laboriosam eaque deserunt earum reiciendis dignissimos nihil iure praesentium harum doloribus voluptas, quas!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolores optio minima perspiciatis ea velit quidem consequatur laboriosam eaque deserunt earum reiciendis dignissimos nihil iure praesentium harum doloribus voluptas, quas!
 
-		</div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolores optio minima perspiciatis ea velit quidem consequatur laboriosam eaque deserunt earum reiciendis dignissimos nihil iure praesentium harum doloribus voluptas, quas!
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolores optio minima perspiciatis ea velit quidem consequatur laboriosam eaque deserunt earum reiciendis dignissimos nihil iure praesentium harum doloribus voluptas, quas!
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolores optio minima perspiciatis ea velit quidem consequatur laboriosam eaque deserunt earum reiciendis dignissimos nihil iure praesentium harum doloribus voluptas, quas!
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolores optio minima perspiciatis ea velit quidem consequatur laboriosam eaque deserunt earum reiciendis dignissimos nihil iure praesentium harum doloribus voluptas, quas!
+
 	</div>
 
-	<script src="vendors/hero-slider/js/jquery-2.1.1.js"></script>
-	<script src="vendors/hero-slider/js/main.js"></script> <!-- Resource jQuery -->
+	<div class="overlay"></div>
+
+
+	<div id="search" class="search">
+		<form>
+			<input type="search" placeholder="Search...">
+		</form>
+	</div>
+<script src="vendors/mega-site-navigation/js/jquery-2.1.1.js"></script>
+<script src="vendors/mega-site-navigation/js/jquery.mobile.custom.min.js"></script>
+<script src="vendors/mega-site-navigation/js/main.js"></script> <!-- Resource jQuery -->
+<script src="vendors/foundation/foundation.js"></script>
+<script src="vendors/foundation/foundation.topbar.js"></script>
+<script type="text/javascript">
+  $(document).foundation();
+</script>
 </body>
 </html>

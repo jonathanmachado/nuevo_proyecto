@@ -1,0 +1,275 @@
+@import 'bourbon/bourbon'; // http://bourbon.io/
+
+@import '../partials/variables'; // colors, fonts etc...
+
+@import '../partials/layout'; // responsive grid and media queries
+
+
+input {
+	font-family: $primary-font;
+	font-size: 1.6rem;
+}
+
+input[type="search"]::-ms-clear {
+	/* removes close icon - IE */
+    display: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+
+
+.f-topbar-fixed {
+	.search.is-visible {
+		position: fixed;
+	}
+}
+
+.search-visible {
+	position: relative;
+	z-index: $above-content;
+}
+
+.header-buttons,
+.header-buttons-mobile {
+	position: absolute;
+	display: inline-block;
+	right: 5%;
+
+	li {
+		top: 14px;
+		display: inline-block;
+		position: relative;
+		span {
+			position: relative;
+			top: -14px;
+		}
+	}
+
+	@include MQ(L) {
+		top: 14px;
+		right: 4em;
+	}
+}
+
+
+.top-bar ul li > a.search-trigger {
+	position: relative;
+	display: block;
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	white-space: nowrap;
+	/* hide text */
+	color: transparent;
+	z-index: $above-content;
+	padding: 0 !important;
+	text-indent: -9999px;
+
+	&::before, &::after {
+		/* search icon */
+		content: '';
+		position: absolute;
+		@include transition(opacity .3s);
+		/* Force Hardware Acceleration in WebKit */
+		@include transform(translateZ(0));
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	&::before {
+		/* lens */
+		top: 11px;
+		left: 11px;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		border: 3px solid $color-1;
+	}
+
+	&::after {
+		/* handle */
+		height: 3px;
+		width: 8px;
+		background: $color-1;
+		bottom: 14px;
+		right: 11px;
+		@include transform(rotate(45deg));
+	}
+
+	span {
+		/* container for the X icon */
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	span::before, span::after {
+		/* close icon */
+		content: '';
+		position: absolute;
+		display: inline-block;
+		height: 3px;
+		width: 22px;
+		top: 50%;
+		margin-top: -2px;
+		left: 50%;
+		margin-left: -11px;
+		background: $color-1;
+		opacity: 0;
+		/* Force Hardware Acceleration in WebKit */
+		@include transform(translateZ(0));
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		@include transition(opacity .3s, transform .3s);
+	}
+
+	span::before {
+		@include transform(rotate(45deg));
+	}
+
+	span::after {
+		@include transform(rotate(-45deg));
+	}
+
+	&.search-is-visible {
+		&::before, &::after {
+			/* hide search icon */
+			opacity: 0;
+		}
+
+		span::before, span::after {
+			/* show close icon */
+			opacity: 1;
+		}
+
+		span::before {
+			@include transform(rotate(135deg));
+		}
+
+		span::after {
+			@include transform(rotate(45deg));
+		}
+	}
+}
+
+
+
+.search {
+	position: absolute;
+	height: $search-height-S;
+	width: 100%;
+	top: $header-height-S;
+	left: 0;
+	z-index: $above-content;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity .3s 0s, visibility 0s .3s;
+	-moz-transition: opacity .3s 0s, visibility 0s .3s;
+	transition: opacity .3s 0s, visibility 0s .3s;
+
+	form {
+		height: 100%;
+		width: 100%;
+	}
+
+	input {
+		border-radius: 0;
+		border: none;
+		background: $color-4;
+		height: 100%;
+		width: 100%;
+		padding: 0 5%;
+		box-shadow: inset 0 1px 0 $color-3, 0 3px 6px rgba(#000, .05);
+		@include appearance(none);
+
+		@include placeholder {
+			color: darken($color-3, 10%);
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+		-webkit-transition: opacity .3s 0s, visibility 0s 0s;
+		-moz-transition: opacity .3s 0s, visibility 0s 0s;
+		transition: opacity .3s 0s, visibility 0s 0s;
+	}
+
+	@include MQ(L) {
+		height: $search-height-L;
+		top: $header-height-L;
+
+		input {
+			padding: 0 2em;
+			font-size: 3.2rem;
+			font-weight: 300;
+
+			@include placeholder {
+
+			}
+		}
+	}
+}
+
+.overlay {
+	/* shadow layer visible when navigation is active */
+	position: fixed;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	background-color: rgba($color-2, .8);
+	visibility: hidden;
+	opacity: 0;
+	@include backface-visibility(hidden);
+	@include transition(opacity .3s 0s, visibility 0s .3s, transform .3s 0s);
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+		@include transition(opacity .3s 0s, visibility 0s 0s, transform .3s 0s);
+	}
+
+	@include MQ(maxL) {
+		&.is-visible {
+			@include transform(translateX(-$nav-width-S));
+		}
+
+		&.is-visible.search-is-visible {
+			@include transform(translateX(0));
+		}
+	}
+}
+
+/* --------------------------------
+
+support for no js
+
+-------------------------------- */
+
+
+.no-js .search {
+	position: relative;
+	top: 0;
+	opacity: 1;
+	visibility: visible;
+}
