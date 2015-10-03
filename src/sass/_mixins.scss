@@ -74,14 +74,14 @@
   }
 }
 
-// Font-size
-@mixin font-size($size) {
-  @if unitless($size) {
-    $size: $size * 1px;
-  }
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
 
+@mixin font-size($size) {
   font-size: $size;
-  font-size: ($size / $base-font-size) * 1rem;
+  font-size: calculateRem($size);
 }
 
 // Border-radius
@@ -150,10 +150,16 @@
 
 @mixin respond-to($media) {
   @if $media == mobile-only {
-    @media only screen and (max-width: 40em) { @content; } // max-width 640px, mobile-only styles, use when QAing mobile issues
+    @media only screen and (max-width: 28.75em) { @content; } // max-width 460px, mobile-only styles, use when QAing mobile issues
   }
   @else if $media == mobile-landscape {
-    @media only screen and (min-width: 28.8125em) { @content; } // min-width 641px, medium screens
+    @media only screen and (min-width: 28.8125em) and (max-width: 40em) { @content; } // 461px to 640px
+  }
+  @else if $media == mobile-landscape-up {
+    @media only screen and (min-width: 28.8125em) { @content; } // 461px to 640px
+  }
+  @else if $media == mobile-all {
+    @media only screen and (min-width: 40.063em) and (max-width: 46.25em) { @content; } //641px to 740px
   }
   @else if $media == medium {
     @media only screen and (min-width: 40.063em) { @content; } // min-width 641px, medium screens

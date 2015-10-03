@@ -26,11 +26,6 @@
   text-align: center;
 }
 
-.blue {
-  background: #3498db;
-  color: #fff;
-}
-
 .blue h3 {
   background: #fff;
   color: #3498db;
@@ -44,7 +39,6 @@
 
 .slick-slider {
   margin: auto;
-  padding: 0 rem-calc(5);
 }
 
 .slick-slider .items-slider img {

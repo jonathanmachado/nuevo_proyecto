@@ -5,6 +5,9 @@
 @import "navigation";
 
 @import "foundation/components/type";
+
+$column-gutter: rem-calc(15);
+
 @import "foundation/components/grid";
 @import "foundation/components/block-grid";
 @import "foundation/components/visibility";
@@ -34,4 +37,100 @@
 }
 .no-margin {
   margin: 0;
+}
+.padding-hr {
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  @extend body;
+}
+
+.t-12 {
+  @include font-size(12px);
+}
+
+.t-36 {
+  @include font-size(36px);
+}
+
+.t-39 {
+  @include font-size(39px);
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.color-gray {
+  color: $color-gray;
+}
+
+.color-dark-gray {
+  color: $color-dark-gray;
+}
+
+.color-dark-blue {
+  color: $color-dark-blue;
+}
+
+.top-content {
+  margin: 1em 0 0;
+  .title {
+    font-weight: 300;
+    line-height: rem-calc(46);
+    margin-top: .8em;
+  }
+}
+
+.slider-content {
+  @media only screen and (max-width: 40em) {
+    .row {
+      padding-top: 0.9375rem !important;
+      padding-bottom: 0.9375rem !important;
+    }
+  }
+  .content {
+    line-height: rem-calc(25);
+    margin-bottom: .15em;
+  }
+  .small {
+    text-transform: uppercase;
+    color: #93999a;
+    @include font-size(12px);
+    line-height: rem-calc(19);
+    margin-bottom: rem-calc(25);
+  }
+}
+
+.hero-slider {
+  h1, h2 {
+    @include font-size(20px);
+    font-weight: 700;
+    line-height: rem-calc(26);
+    margin-bottom: 1em;
+  }
+  h2 {
+    @include font-size(18px);
+    font-weight: 600;
+  }
+}
+.share-ideas {
+  li {
+    display: inline-block;
+    padding-top: 15px;
+    margin-right: .5em;
+    span {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.separator {
+  height: 2px;
+  width: 100%;
+  background-color: #e8ecee;
 }

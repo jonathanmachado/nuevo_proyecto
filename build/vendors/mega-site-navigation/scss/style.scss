@@ -40,29 +40,6 @@ Main components
 	z-index: $above-content;
 }
 
-.header-buttons,
-.header-buttons-mobile {
-	position: absolute;
-	display: inline-block;
-	right: 5%;
-
-	li {
-		top: 14px;
-		display: inline-block;
-		position: relative;
-		span {
-			position: relative;
-			top: -14px;
-		}
-	}
-
-	@include MQ(L) {
-		top: 14px;
-		right: 4em;
-	}
-}
-
-
 .top-bar ul li > a.search-trigger {
 	position: relative;
 	display: block;
@@ -94,12 +71,12 @@ Main components
 		width: 18px;
 		height: 18px;
 		border-radius: 50%;
-		border: 3px solid $color-1;
+		border: 2px solid $color-1;
 	}
 
 	&::after {
 		/* handle */
-		height: 3px;
+		height: 2px;
 		width: 8px;
 		background: $color-1;
 		bottom: 14px;
