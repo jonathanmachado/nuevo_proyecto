@@ -4,6 +4,7 @@ var debug    = true;
 
 var gulp        = require('gulp'),
     browserSync = require('browser-sync').create(),
+    spritesmith = require('gulp.spritesmith'),
     plugins     = require('gulp-load-plugins')({
       scope: ['devDependencies']
     });
@@ -16,6 +17,11 @@ var path = {
   images: {
     src: ['build/images/**/*.*'],
     dest: 'src/images'
+  },
+  sprite: {
+    src: ['build/images/social/*.png'],
+    dest: 'src/images/sprite',
+    destSass: 'src/sass/sprite'
   },
   sass: {
     src: ['build/sass/**/*.scss'],
@@ -39,6 +45,7 @@ var path = {
 path.watch = {
   sass:       ['build/sass/**/styles.scss'],
   images:     ['build/images/**/*.*'],
+  sprite:     ['build/images/sprite/*.png'],
   javascript: ['build/js/**/*.js'],
   vendors:    ['build/vendors/**/*.*'],
   html:       ['build/*.html'],
@@ -101,6 +108,25 @@ gulp.task('images', function () {
     })))
     .pipe(gulp.dest(path.images.dest));
 });
+
+gulp.task('sprite', function () {
+  // Generate our spritesheet
+  var nameSprite = 'sprite';
+  var spriteData = gulp.src(path.sprite.src).pipe(spritesmith({
+    imgName: nameSprite + '.png',
+    cssName: nameSprite + '.scss',
+    cssFormat: 'scss',
+    imgPath: '../images/' + nameSprite + '/' + nameSprite + '.png'
+  }));
+  // Pipe image stream through image optimizer and onto disk
+  spriteData.img.pipe(plugins.imagemin())
+    .pipe(gulp.dest(path.sprite.dest));
+
+  // Pipe CSS stream through CSS optimizer and onto disk
+  spriteData.css.pipe(gulp.dest(path.sprite.destSass));
+
+});
+
 
 gulp.task('watch-sass', ['sass'], function(){
   gulp.watch(path.sass.src, ['sass']);

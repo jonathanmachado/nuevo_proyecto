@@ -1,0 +1,334 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$behance-128-name: 'behance-128';
+$behance-128-x: 128px;
+$behance-128-y: 0px;
+$behance-128-offset-x: -128px;
+$behance-128-offset-y: 0px;
+$behance-128-width: 128px;
+$behance-128-height: 128px;
+$behance-128-total-width: 640px;
+$behance-128-total-height: 640px;
+$behance-128-image: '../images/sprite/sprite.png';
+$behance-128: (128px, 0px, -128px, 0px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'behance-128', );
+$blogger-128-name: 'blogger-128';
+$blogger-128-x: 0px;
+$blogger-128-y: 384px;
+$blogger-128-offset-x: 0px;
+$blogger-128-offset-y: -384px;
+$blogger-128-width: 128px;
+$blogger-128-height: 128px;
+$blogger-128-total-width: 640px;
+$blogger-128-total-height: 640px;
+$blogger-128-image: '../images/sprite/sprite.png';
+$blogger-128: (0px, 384px, 0px, -384px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'blogger-128', );
+$deviantart-128-name: 'deviantart-128';
+$deviantart-128-x: 0px;
+$deviantart-128-y: 128px;
+$deviantart-128-offset-x: 0px;
+$deviantart-128-offset-y: -128px;
+$deviantart-128-width: 128px;
+$deviantart-128-height: 128px;
+$deviantart-128-total-width: 640px;
+$deviantart-128-total-height: 640px;
+$deviantart-128-image: '../images/sprite/sprite.png';
+$deviantart-128: (0px, 128px, 0px, -128px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'deviantart-128', );
+$digg-128-name: 'digg-128';
+$digg-128-x: 128px;
+$digg-128-y: 128px;
+$digg-128-offset-x: -128px;
+$digg-128-offset-y: -128px;
+$digg-128-width: 128px;
+$digg-128-height: 128px;
+$digg-128-total-width: 640px;
+$digg-128-total-height: 640px;
+$digg-128-image: '../images/sprite/sprite.png';
+$digg-128: (128px, 128px, -128px, -128px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'digg-128', );
+$ebay-128-name: 'ebay-128';
+$ebay-128-x: 256px;
+$ebay-128-y: 0px;
+$ebay-128-offset-x: -256px;
+$ebay-128-offset-y: 0px;
+$ebay-128-width: 128px;
+$ebay-128-height: 128px;
+$ebay-128-total-width: 640px;
+$ebay-128-total-height: 640px;
+$ebay-128-image: '../images/sprite/sprite.png';
+$ebay-128: (256px, 0px, -256px, 0px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'ebay-128', );
+$facebook-128-name: 'facebook-128';
+$facebook-128-x: 256px;
+$facebook-128-y: 128px;
+$facebook-128-offset-x: -256px;
+$facebook-128-offset-y: -128px;
+$facebook-128-width: 128px;
+$facebook-128-height: 128px;
+$facebook-128-total-width: 640px;
+$facebook-128-total-height: 640px;
+$facebook-128-image: '../images/sprite/sprite.png';
+$facebook-128: (256px, 128px, -256px, -128px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'facebook-128', );
+$flickr-128-name: 'flickr-128';
+$flickr-128-x: 0px;
+$flickr-128-y: 256px;
+$flickr-128-offset-x: 0px;
+$flickr-128-offset-y: -256px;
+$flickr-128-width: 128px;
+$flickr-128-height: 128px;
+$flickr-128-total-width: 640px;
+$flickr-128-total-height: 640px;
+$flickr-128-image: '../images/sprite/sprite.png';
+$flickr-128: (0px, 256px, 0px, -256px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'flickr-128', );
+$googleplus-128-name: 'googleplus-128';
+$googleplus-128-x: 128px;
+$googleplus-128-y: 256px;
+$googleplus-128-offset-x: -128px;
+$googleplus-128-offset-y: -256px;
+$googleplus-128-width: 128px;
+$googleplus-128-height: 128px;
+$googleplus-128-total-width: 640px;
+$googleplus-128-total-height: 640px;
+$googleplus-128-image: '../images/sprite/sprite.png';
+$googleplus-128: (128px, 256px, -128px, -256px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'googleplus-128', );
+$instagram-128-name: 'instagram-128';
+$instagram-128-x: 256px;
+$instagram-128-y: 256px;
+$instagram-128-offset-x: -256px;
+$instagram-128-offset-y: -256px;
+$instagram-128-width: 128px;
+$instagram-128-height: 128px;
+$instagram-128-total-width: 640px;
+$instagram-128-total-height: 640px;
+$instagram-128-image: '../images/sprite/sprite.png';
+$instagram-128: (256px, 256px, -256px, -256px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'instagram-128', );
+$linkedin-128-name: 'linkedin-128';
+$linkedin-128-x: 384px;
+$linkedin-128-y: 0px;
+$linkedin-128-offset-x: -384px;
+$linkedin-128-offset-y: 0px;
+$linkedin-128-width: 128px;
+$linkedin-128-height: 128px;
+$linkedin-128-total-width: 640px;
+$linkedin-128-total-height: 640px;
+$linkedin-128-image: '../images/sprite/sprite.png';
+$linkedin-128: (384px, 0px, -384px, 0px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'linkedin-128', );
+$myspace-128-name: 'myspace-128';
+$myspace-128-x: 384px;
+$myspace-128-y: 128px;
+$myspace-128-offset-x: -384px;
+$myspace-128-offset-y: -128px;
+$myspace-128-width: 128px;
+$myspace-128-height: 128px;
+$myspace-128-total-width: 640px;
+$myspace-128-total-height: 640px;
+$myspace-128-image: '../images/sprite/sprite.png';
+$myspace-128: (384px, 128px, -384px, -128px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'myspace-128', );
+$paypal-128-name: 'paypal-128';
+$paypal-128-x: 384px;
+$paypal-128-y: 256px;
+$paypal-128-offset-x: -384px;
+$paypal-128-offset-y: -256px;
+$paypal-128-width: 128px;
+$paypal-128-height: 128px;
+$paypal-128-total-width: 640px;
+$paypal-128-total-height: 640px;
+$paypal-128-image: '../images/sprite/sprite.png';
+$paypal-128: (384px, 256px, -384px, -256px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'paypal-128', );
+$pinterest-128-name: 'pinterest-128';
+$pinterest-128-x: 0px;
+$pinterest-128-y: 0px;
+$pinterest-128-offset-x: 0px;
+$pinterest-128-offset-y: 0px;
+$pinterest-128-width: 128px;
+$pinterest-128-height: 128px;
+$pinterest-128-total-width: 640px;
+$pinterest-128-total-height: 640px;
+$pinterest-128-image: '../images/sprite/sprite.png';
+$pinterest-128: (0px, 0px, 0px, 0px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'pinterest-128', );
+$reddit-128-name: 'reddit-128';
+$reddit-128-x: 128px;
+$reddit-128-y: 384px;
+$reddit-128-offset-x: -128px;
+$reddit-128-offset-y: -384px;
+$reddit-128-width: 128px;
+$reddit-128-height: 128px;
+$reddit-128-total-width: 640px;
+$reddit-128-total-height: 640px;
+$reddit-128-image: '../images/sprite/sprite.png';
+$reddit-128: (128px, 384px, -128px, -384px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'reddit-128', );
+$rss-128-name: 'rss-128';
+$rss-128-x: 256px;
+$rss-128-y: 384px;
+$rss-128-offset-x: -256px;
+$rss-128-offset-y: -384px;
+$rss-128-width: 128px;
+$rss-128-height: 128px;
+$rss-128-total-width: 640px;
+$rss-128-total-height: 640px;
+$rss-128-image: '../images/sprite/sprite.png';
+$rss-128: (256px, 384px, -256px, -384px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'rss-128', );
+$scribble-128-name: 'scribble-128';
+$scribble-128-x: 384px;
+$scribble-128-y: 384px;
+$scribble-128-offset-x: -384px;
+$scribble-128-offset-y: -384px;
+$scribble-128-width: 128px;
+$scribble-128-height: 128px;
+$scribble-128-total-width: 640px;
+$scribble-128-total-height: 640px;
+$scribble-128-image: '../images/sprite/sprite.png';
+$scribble-128: (384px, 384px, -384px, -384px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'scribble-128', );
+$skype-128-name: 'skype-128';
+$skype-128-x: 512px;
+$skype-128-y: 0px;
+$skype-128-offset-x: -512px;
+$skype-128-offset-y: 0px;
+$skype-128-width: 128px;
+$skype-128-height: 128px;
+$skype-128-total-width: 640px;
+$skype-128-total-height: 640px;
+$skype-128-image: '../images/sprite/sprite.png';
+$skype-128: (512px, 0px, -512px, 0px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'skype-128', );
+$stumbleupon-128-name: 'stumbleupon-128';
+$stumbleupon-128-x: 512px;
+$stumbleupon-128-y: 128px;
+$stumbleupon-128-offset-x: -512px;
+$stumbleupon-128-offset-y: -128px;
+$stumbleupon-128-width: 128px;
+$stumbleupon-128-height: 128px;
+$stumbleupon-128-total-width: 640px;
+$stumbleupon-128-total-height: 640px;
+$stumbleupon-128-image: '../images/sprite/sprite.png';
+$stumbleupon-128: (512px, 128px, -512px, -128px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'stumbleupon-128', );
+$tumblr-128-name: 'tumblr-128';
+$tumblr-128-x: 512px;
+$tumblr-128-y: 256px;
+$tumblr-128-offset-x: -512px;
+$tumblr-128-offset-y: -256px;
+$tumblr-128-width: 128px;
+$tumblr-128-height: 128px;
+$tumblr-128-total-width: 640px;
+$tumblr-128-total-height: 640px;
+$tumblr-128-image: '../images/sprite/sprite.png';
+$tumblr-128: (512px, 256px, -512px, -256px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'tumblr-128', );
+$twitter-128-name: 'twitter-128';
+$twitter-128-x: 512px;
+$twitter-128-y: 384px;
+$twitter-128-offset-x: -512px;
+$twitter-128-offset-y: -384px;
+$twitter-128-width: 128px;
+$twitter-128-height: 128px;
+$twitter-128-total-width: 640px;
+$twitter-128-total-height: 640px;
+$twitter-128-image: '../images/sprite/sprite.png';
+$twitter-128: (512px, 384px, -512px, -384px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'twitter-128', );
+$vimeo-128-name: 'vimeo-128';
+$vimeo-128-x: 0px;
+$vimeo-128-y: 512px;
+$vimeo-128-offset-x: 0px;
+$vimeo-128-offset-y: -512px;
+$vimeo-128-width: 128px;
+$vimeo-128-height: 128px;
+$vimeo-128-total-width: 640px;
+$vimeo-128-total-height: 640px;
+$vimeo-128-image: '../images/sprite/sprite.png';
+$vimeo-128: (0px, 512px, 0px, -512px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'vimeo-128', );
+$wordpress-128-name: 'wordpress-128';
+$wordpress-128-x: 128px;
+$wordpress-128-y: 512px;
+$wordpress-128-offset-x: -128px;
+$wordpress-128-offset-y: -512px;
+$wordpress-128-width: 128px;
+$wordpress-128-height: 128px;
+$wordpress-128-total-width: 640px;
+$wordpress-128-total-height: 640px;
+$wordpress-128-image: '../images/sprite/sprite.png';
+$wordpress-128: (128px, 512px, -128px, -512px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'wordpress-128', );
+$yahoo-128-name: 'yahoo-128';
+$yahoo-128-x: 256px;
+$yahoo-128-y: 512px;
+$yahoo-128-offset-x: -256px;
+$yahoo-128-offset-y: -512px;
+$yahoo-128-width: 128px;
+$yahoo-128-height: 128px;
+$yahoo-128-total-width: 640px;
+$yahoo-128-total-height: 640px;
+$yahoo-128-image: '../images/sprite/sprite.png';
+$yahoo-128: (256px, 512px, -256px, -512px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'yahoo-128', );
+$youtube-128-name: 'youtube-128';
+$youtube-128-x: 384px;
+$youtube-128-y: 512px;
+$youtube-128-offset-x: -384px;
+$youtube-128-offset-y: -512px;
+$youtube-128-width: 128px;
+$youtube-128-height: 128px;
+$youtube-128-total-width: 640px;
+$youtube-128-total-height: 640px;
+$youtube-128-image: '../images/sprite/sprite.png';
+$youtube-128: (384px, 512px, -384px, -512px, 128px, 128px, 640px, 640px, '../images/sprite/sprite.png', 'youtube-128', );
+$spritesheet-width: 640px;
+$spritesheet-height: 640px;
+$spritesheet-image: '../images/sprite/sprite.png';
+$spritesheet-sprites: ($behance-128, $blogger-128, $deviantart-128, $digg-128, $ebay-128, $facebook-128, $flickr-128, $googleplus-128, $instagram-128, $linkedin-128, $myspace-128, $paypal-128, $pinterest-128, $reddit-128, $rss-128, $scribble-128, $skype-128, $stumbleupon-128, $tumblr-128, $twitter-128, $vimeo-128, $wordpress-128, $yahoo-128, $youtube-128, );
+$spritesheet: (640px, 640px, '../images/sprite/sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

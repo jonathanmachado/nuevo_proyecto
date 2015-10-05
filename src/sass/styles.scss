@@ -26,6 +26,11 @@ $column-gutter: rem-calc(15);
 @import "../vendors/hero-slider/scss/style";
 @import "../vendors/mega-site-navigation/scss/style";
 
+@import "../vendors/waves/src/scss/waves";
+
+@import "../../src/sass/sprite/sprite";
+
+
 .row {
   padding-top: rem-calc(15);
   padding-bottom: rem-calc(15);
@@ -133,4 +138,20 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   width: 100%;
   background-color: #e8ecee;
+}
+
+/*
+ * Social Icons
+ */
+
+.socicon {
+  font-family: 'socicon' !important;
+}
+
+.socicon:empty {
+    width: 2.5em;
+}
+
+.facebook-128 {
+  @include sprite($facebook-128);
 }
