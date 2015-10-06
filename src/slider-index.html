@@ -26,7 +26,7 @@
         </div>
         <div>
           <img src="http://placehold.it/704x450">
-          <a href="#modal2">PLAY</a>
+          <a href="#modal2" data-video-id="hS5CfP8n_js">PLAY</a>
         </div>
       </div>
     </div>
@@ -78,14 +78,7 @@
 
 
   <div data-remodal-id="modal2" role="dialog" aria-labelledby="modal2Title" aria-describedby="modal2Desc">
-    <div>
-      <h2 id="modal2Title">Another one window</h2>
-      <p id="modal2Desc">
-        Hello!
-      </p>
-    </div>
-    <br>
-    <button data-remodal-action="confirm" class="remodal-confirm">Hello!</button>
+    <div id="video"></div>
   </div>
 
 
@@ -102,17 +95,45 @@
   <script type="text/javascript" src="vendors/slick/slick.min.js"></script>
   <script type="text/javascript" src="vendors/remodal/remodal.js"></script>
   <script type="text/javascript" src="vendors/nicescroll/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="vendors/okvideo/src/okvideo.min.js"></script>
   <script type="text/javascript">
 		$(document).foundation();
     function getItems(element) {
       return $(element).html().replace(/li/g, "div");
     }
+
+    function setVideo(id) {
+      $("#video").okvideo({
+        source: id,
+        //source: 'hS5CfP8n_js',
+        volume: 50,
+        loop: false,
+        hd: true,
+        onFinished: function(){
+          video.close();
+          $("#video").children().remove();
+        }
+      });
+      return true;
+    }
+
+    var video;
     $(function () {
 
-      $('[data-remodal-id=modal2]').remodal({
-        modifier: 'with-red-theme',
-        closeOnEscape: false,
-        closeOnOutsideClick: false
+      $('[data-video-id]').on('click', function(event){
+        event.preventDefault();
+        var id_video = $(this).attr('data-video-id');
+
+        video = $('[data-remodal-id=modal2]').remodal({
+          modifier: 'with-red-theme',
+          closeOnEscape: false,
+          closeOnOutsideClick: false
+        });
+
+        if(setVideo(id_video)){
+          video.open();
+        }
+
       });
 
       $('.slider-top').slick({
@@ -154,8 +175,6 @@
       if (!$('html').hasClass('ismobile')) {
         scrollbar('html', 'rgba(0,0,0,0.3)', '5px');
       }
-
-      $('#tabs2').tabulous({ effect: 'slideLeft' });
 
     });
 	</script>

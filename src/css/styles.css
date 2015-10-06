@@ -10004,21 +10004,33 @@ th.hide-for-touch {
   width: 100%;
 }
 
-.remodal.with-red-theme {
+body .remodal, h1 .remodal, h2 .remodal, h3 .remodal, h4 .remodal, h5 .remodal, h6 .remodal {
+  display: table;
+  margin: 0 auto;
+  min-height: 300px;
+}
+
+body .remodal.with-red-theme, h1 .remodal.with-red-theme, h2 .remodal.with-red-theme, h3 .remodal.with-red-theme, h4 .remodal.with-red-theme, h5 .remodal.with-red-theme, h6 .remodal.with-red-theme {
   background: #fff;
   vertical-align: top;
 }
 
-.remodal-bg.with-red-theme.remodal-is-opening,
-.remodal-bg.with-red-theme.remodal-is-opened {
+body .remodal-bg.with-red-theme.remodal-is-opening,
+h1 .remodal-bg.with-red-theme.remodal-is-opening,
+h2 .remodal-bg.with-red-theme.remodal-is-opening,
+h3 .remodal-bg.with-red-theme.remodal-is-opening,
+h4 .remodal-bg.with-red-theme.remodal-is-opening,
+h5 .remodal-bg.with-red-theme.remodal-is-opening,
+h6 .remodal-bg.with-red-theme.remodal-is-opening,
+body .remodal-bg.with-red-theme.remodal-is-opened, h1 .remodal-bg.with-red-theme.remodal-is-opened, h2 .remodal-bg.with-red-theme.remodal-is-opened, h3 .remodal-bg.with-red-theme.remodal-is-opened, h4 .remodal-bg.with-red-theme.remodal-is-opened, h5 .remodal-bg.with-red-theme.remodal-is-opened, h6 .remodal-bg.with-red-theme.remodal-is-opened {
   filter: none;
 }
 
-.remodal-wrapper.with-red-theme {
+body .remodal-wrapper.with-red-theme, h1 .remodal-wrapper.with-red-theme, h2 .remodal-wrapper.with-red-theme, h3 .remodal-wrapper.with-red-theme, h4 .remodal-wrapper.with-red-theme, h5 .remodal-wrapper.with-red-theme, h6 .remodal-wrapper.with-red-theme {
   padding: 80px 10px 0;
 }
 
-.remodal-overlay.with-red-theme {
+body .remodal-overlay.with-red-theme, h1 .remodal-overlay.with-red-theme, h2 .remodal-overlay.with-red-theme, h3 .remodal-overlay.with-red-theme, h4 .remodal-overlay.with-red-theme, h5 .remodal-overlay.with-red-theme, h6 .remodal-overlay.with-red-theme {
   background-color: #f44336;
 }
 
@@ -11097,6 +11109,13 @@ body, h1, h2, h3, h4, h5, h6 {
   background-position: -256px -128px;
   width: 128px;
   height: 128px;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: table-cell;
 }
 
 /*# sourceMappingURL=styles.css.map */

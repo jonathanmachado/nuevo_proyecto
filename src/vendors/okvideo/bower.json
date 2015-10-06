@@ -1,0 +1,13 @@
+{
+	"name": "okvideo",
+	"version": "2.3.3",
+	"homepage": "http://okfoc.us/okvideo",
+	"authors": [
+		"OKFocus"
+	],
+	"main": "./src/okvideo.js",
+	"description": "OKFocus, Internet Legends",
+	"private": true,
+	"dependencies": {
+	}
+}
