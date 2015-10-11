@@ -19,7 +19,7 @@ var path = {
     dest: 'src/images'
   },
   sprite: {
-    src: ['build/images/social/*.png'],
+    src: ['build/images/sprite/*.png'],
     dest: 'src/images/sprite',
     destSass: 'src/sass/sprite'
   },
@@ -45,7 +45,7 @@ var path = {
 path.watch = {
   sass:       ['build/sass/**/styles.scss'],
   images:     ['build/images/**/*.*'],
-  sprite:     ['build/images/sprite/*.png'],
+  sprite:     ['build/images/sprites/*.png'],
   javascript: ['build/js/**/*.js'],
   vendors:    ['build/vendors/**/*.*'],
   html:       ['build/*.html'],

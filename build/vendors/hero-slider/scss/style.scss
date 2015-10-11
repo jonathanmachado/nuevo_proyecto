@@ -132,7 +132,7 @@ Slider navigation
 	//text-align: center;
 	height: 55px;
 	background-color: $color-2;
-	border-bottom: 2px solid #e8ecee;
+	border-bottom: 1px solid #e8ecee;
 	nav, ul, li, a {
 		height: 100%;
 	}
@@ -177,7 +177,10 @@ Slider navigation
 	li {
 		display: inline-block;
 		float: left;
-		margin-right: 4em;
+		margin-right: 1em;
+		&:last-child {
+			margin-right: 0;
+		}
 		&.selected a {
 			color: $color-1;
 
@@ -212,9 +215,9 @@ Slider navigation
 		height: 80px;
 
 		.cd-marker,
-		li {
-		}
+ 		li {
 
+		}
 	}
 }
 

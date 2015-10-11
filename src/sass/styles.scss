@@ -50,12 +50,17 @@ $column-gutter: rem-calc(15);
 body {
   font-family: 'Source Sans Pro', sans-serif !important;
 }
-h1, h2, h3, h4, h5, h6 {
-  @extend body;
+h1, h2, h3, h4, h5, h6, input {
+  font-family: 'Source Sans Pro', sans-serif !important;
 }
+
 
 .t-12 {
   @include font-size(12px);
+}
+
+.t-20 {
+  @include font-size(36px);
 }
 
 .t-36 {
@@ -66,8 +71,16 @@ h1, h2, h3, h4, h5, h6 {
   @include font-size(39px);
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 .font-light {
   font-weight: 300;
+}
+
+.color-white {
+  color: $color-white;
 }
 
 .color-gray {
@@ -82,15 +95,22 @@ h1, h2, h3, h4, h5, h6 {
   color: $color-dark-blue;
 }
 
-.top-content {
-  margin: 1em 0 0;
-  .title {
-    font-weight: 300;
-    line-height: rem-calc(46);
-    margin-top: .8em;
-  }
+.color-yellow {
+  color: $color-yellow;
 }
 
+.top-content {
+  margin: 1em 0 0;
+}
+.title {
+  font-weight: 300;
+  line-height: rem-calc(46);
+  margin-top: .8em;
+}
+
+.fixed.search-visible {
+  position: fixed;
+}
 .slider-content {
   @media only screen and (max-width: 40em) {
     .row {
@@ -123,19 +143,40 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
   }
 }
+.cd-slider-nav {
+  overflow: hidden;
+  padding-bottom: 6em;
+}
 .share-ideas {
+  float: right;
   li {
     display: inline-block;
-    padding-top: 15px;
-    margin-right: .5em;
+    margin-right: .75em;
+    &:last-child {
+      margin-right: 0;
+    }
     span {
+      display: none;
+      margin-top: 1em;
+      letter-spacing: 2px;
       text-transform: uppercase;
+    }
+    a {
+      padding: 0;
+      margin-top: .2em;
+      i {
+        background: $social-icons;
+        color: $color-white;
+      }
+      &:hover i {
+        background-color: darken($social-icons, 5%) !important;
+      }
     }
   }
 }
 
 .separator {
-  height: 2px;
+  height: 1px;
   width: 100%;
   background-color: #e8ecee;
 }
@@ -152,8 +193,350 @@ h1, h2, h3, h4, h5, h6 {
     width: 2.5em;
 }
 
-.facebook-128 {
-  @include sprite($facebook-128);
+
+
+.slider-top {
+  .slick-prev {
+    @include sprite($arrow-left);
+    &:before {
+      content: '';
+    }
+  }
+  .slick-next {
+    @include sprite($arrow-right);
+    &:before {
+      content: '';
+    }
+  }
 }
 
-#video { width: 100%; height: 100%; overflow: hidden; display: table-cell; }
+
+#video {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: table-cell;
+  i {
+    position: absolute;
+    top: 45%;
+  }
+}
+
+.button-green {
+  color: $color-white !important;
+  background: $button-green;
+  @include border-radius(15px);
+  padding: .5em 0;
+  &:hover {
+    background: darken($button-green, 5%);
+  }
+}
+
+.button-transparent {
+  background: $button-transparent;
+  @include border-radius(15px);
+  padding: .45em 1em;
+  border: 1px solid #808e9a !important;
+  text-transform: uppercase;
+  &:hover {
+    background: darken($color-white, 2%);
+  }
+}
+
+.button-red {
+  color: $color-white !important;
+  font: {
+    style: normal;
+  }
+  max-height: rem-calc(40);
+  background-color: $button-red !important;
+  @include border-radius(15px);
+  padding: .6em 2em;
+  &:hover {
+    background-color: darken($button-red, 5%) !important;
+  }
+}
+
+.button-white {
+  color: #808e9a !important;
+  font: {
+    style: normal;
+  }
+  max-height: rem-calc(40);
+  background-color: $color-white !important;
+  @include border-radius(15px);
+  padding: .6em 2em;
+  &:hover {
+    background-color: darken($color-white, 5%) !important;
+  }
+}
+
+.button-yellow {
+  color: $color-white !important;
+  font: {
+    style: normal;
+  }
+  max-height: rem-calc(40);
+  background-color: $button-yellow !important;
+  @include border-radius(15px);
+  padding: .4em;
+  &:hover {
+    background-color: darken($button-yellow, 5%) !important;
+  }
+}
+
+.remember {
+  color: $remember-color;
+  text-transform: uppercase;
+  &:hover {
+    color: darken($remember-color, 5%) !important;
+  }
+  i {
+    margin-right: .5em;
+  }
+}
+
+.items-slider,
+.slider-projects,
+.founders,
+.suppor {
+  .row {
+    margin: 0;
+    padding-bottom: .45em;
+    padding-top: .25em;
+    h6 {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+    a {
+      color: #808e9a;
+      margin: 0 .25em;
+      &.button-transparent {
+        margin-bottom: .5em;
+      }
+    }
+  }
+}
+
+.gradient {
+  @include gradient(#1d2e3e, #496177);
+  color: $color-white;
+}
+
+footer {
+  background: $footer-background;
+  span {
+    color: $footer-color;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+  ul {
+    display: inline-block;
+    margin: 0;
+    li {
+      float: left;
+      margin-right: rem-calc(20);
+      a {
+        color: $color-white;
+        i {
+          background: $footer-color;
+          &:hover {
+            background: darken($footer-color, 2%);
+          }
+        }
+        &:hover {
+          color: darken($color-white, 5%);
+        }
+      }
+    }
+  }
+}
+
+.founders,
+.suppor {
+  padding-bottom: 1em;
+  .item {
+    margin-bottom: 2em;
+    .image {
+      @include border-radius(50%);
+      height: 120px;
+      width: 120px;
+      margin: 0 auto;
+      background: #e8ecee;
+    }
+  }
+  .item-v2 {
+    margin-bottom: 2em;
+    .text-gray, .text-black {
+      text-transform: uppercase;
+      color: #808e9a;
+      font-size: rem-calc(14px);
+    }
+    .text-black {
+      font-size: rem-calc(16px);
+      color: $color-black;
+    }
+    .line {
+      height: 1px;
+      background-color: $color-black;
+    }
+    .image {
+      @include border-radius(50%);
+      height: 120px;
+      width: 120px;
+      margin: 0 auto;
+      background: #e8ecee;
+    }
+  }
+}
+.suppor {
+  .line {
+    height: 1px;
+    background: #e8ecee;
+  }
+  h2 {
+    margin-bottom: 1em;
+  }
+  h5 {
+    font-weight: 700;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .cta {
+    width: 80%;
+    max-height: rem-calc(29px);
+    padding: .4em;
+  }
+}
+.call-a-sponsor-item {
+  background: $color-dark-blue;
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+  .image i {
+    color: $color-dark-blue;
+    background: $color-white;
+    font-size: rem-calc(28px);
+    text-align: center;
+    width: 1.3em;
+    height: 1.3em;
+    line-height: 1.3em;
+    border-radius: 50%;
+    margin-top: .5em;
+  }
+  h6 {
+    margin-top: .5em !important;
+    text-transform: uppercase;
+    font: {
+      family: 'Oswald', sans-serif !important;
+      weight: 400 !important;
+      size: rem-calc(27px);
+    }
+    line-height: rem-calc(40px);
+    letter-spacing: 2px;
+  }
+  .button-yellow {
+    width: 100%;
+  }
+}
+
+.call-a-sponsor {
+  .sponsors {
+    li {
+      margin-bottom: 1.5em;
+      .ih-item.circle {
+        margin: 0 auto .5em;
+      }
+    }
+    .info {
+      padding: 3em 0;
+    }
+    i.flat-buttons {
+      margin: .5em auto;
+      max-height: 29px;
+      display: block;
+      width: 60%;
+      input {
+        text-transform: uppercase;
+        padding: .4em .8em;
+        font-size: 14px;
+      }
+    }
+  }
+  h1 {
+    font: {
+      family: 'Oswald', sans-serif !important;
+      weight: 400;
+      size: rem-calc(50px);
+    }
+    line-height: rem-calc(60px);
+    letter-spacing: 2px;
+    margin-top: .25em;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: rem-calc(20px) !important;
+  }
+  .icon i {
+    color: $color-dark-blue;
+    background: $color-white;
+    font-size: rem-calc(28px);
+    text-align: center;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8em;
+    border-radius: 50%;
+    margin: 1em 0;
+  }
+}
+
+@include respond-to(medium-up) {
+  .share-ideas {
+    float: none;
+    li span {
+      display: block;
+    }
+  }
+  .cd-slider-nav .navigation li {
+    margin-right: 2em;
+  }
+
+}
+
+@include respond-to(medium-large) {
+  .cd-slider-nav .navigation li {
+    margin-right: 2.9em;
+  }
+}
+
+@include respond-to(mobile-landscape-down) {
+  .navigation {
+    display: flex;
+  }
+}
+
+@include respond-to(mobile-only) {
+  body {
+    .title {
+      font-size: rem-calc(30px);
+      line-height: rem-calc(35px) !important;
+    }
+    .slick-arrow {
+      display: none !important;
+    }
+    .item,
+    .item-v2 {
+      width: 100%;
+    }
+
+    .call-a-sponsor {
+      .sponsors {
+        li {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

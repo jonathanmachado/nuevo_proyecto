@@ -4,22 +4,18 @@ body .remodal {
   min-height: 300px;
 }
 
-body .remodal.with-red-theme {
+body .remodal.with-white-theme {
   background: #fff;
   vertical-align: top;
 }
 
-body .remodal-bg.with-red-theme.remodal-is-opening,
-body .remodal-bg.with-red-theme.remodal-is-opened {
+body .remodal-bg.with-white-theme.remodal-is-opening,
+body .remodal-bg.with-white-theme.remodal-is-opened {
   filter: none;
 }
 
-body .remodal-wrapper.with-red-theme {
+body .remodal-wrapper.with-white-theme {
   padding: 80px 10px 0;
-}
-
-body .remodal-overlay.with-red-theme {
-  background-color: #f44336;
 }
 
 /*# sourceMappingURL=remodal.css.map */

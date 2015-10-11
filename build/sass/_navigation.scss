@@ -28,6 +28,10 @@ body {
       height: rem-calc(18);
       margin-top: rem-calc(25);
     }
+    .top-bar-section ul li:hover:not(.has-form) > a {
+      background: $color-white;
+      color: $color-black;
+    }
     .top-bar .toggle-topbar.menu-icon a {
       padding: 0;
       margin: 0 1rem;
@@ -73,6 +77,10 @@ body {
               font: {
                 size: rem-calc(13);
                 weight: 600;
+              }
+              &:hover {
+                background: transparent;
+                color: darken(#d0d5d9, 5%);
               }
             }
           }
