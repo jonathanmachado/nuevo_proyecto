@@ -1,5 +1,4 @@
 var MqL = 1170;
-
 function toggleSearch(type) {
 	if(type=="close") {
 		//close serach

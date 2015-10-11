@@ -1,21 +1,3 @@
-body .remodal {
-  display: table;
-  margin: 0 auto;
-  min-height: 300px;
-}
-
-body .remodal.with-white-theme {
-  background: #fff;
-  vertical-align: top;
-}
-
-body .remodal-bg.with-white-theme.remodal-is-opening,
-body .remodal-bg.with-white-theme.remodal-is-opened {
-  filter: none;
-}
-
-body .remodal-wrapper.with-white-theme {
-  padding: 80px 10px 0;
-}
+body .remodal{display:table;margin:0 auto;min-height:300px}body .remodal.with-white-theme{background:#fff;vertical-align:top}body .remodal-bg.with-white-theme.remodal-is-opening,body .remodal-bg.with-white-theme.remodal-is-opened{filter:none}body .remodal-wrapper.with-white-theme{padding:80px 10px 0}
 
 /*# sourceMappingURL=remodal.css.map */

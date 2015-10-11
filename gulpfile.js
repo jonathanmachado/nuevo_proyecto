@@ -1,4 +1,4 @@
-var compress = false;
+var compress = true;
 var browser  = true;
 var debug    = true;
 

@@ -5,7 +5,7 @@ jQuery(document).ready(function($){
 	//check if a .cd-hero-slider exists in the DOM
 	if ( slidesWrapper.length > 0 ) {
 		var primaryNav = $('.cd-primary-nav'),
-			sliderNav = $('.cd-slider-nav .navigation'),
+			sliderNav = $('.cd-slider-nav ,navigation'),
 			navigationMarker = $('.cd-marker'),
 			slidesNumber = slidesWrapper.children('li').length,
 			visibleSlidePosition = 0,

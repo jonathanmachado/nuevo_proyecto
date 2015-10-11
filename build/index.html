@@ -89,11 +89,11 @@
         <div class="slider-top">
           <div>
             <img src="images/template/slider-1.jpg">
-            <a href="#modal" class="flat-buttons button-green"><i class="zmdi zmdi-play-circle"></i> PLAY</a>
+            <a href="#" class="flat-buttons button-green"><i class="zmdi zmdi-play-circle"></i> PLAY</a>
           </div>
           <div>
             <img src="images/template/slider-1.jpg">
-            <a href="#modal2"class="flat-buttons button-green"><i class="zmdi zmdi-play-circle"></i> PLAY</a>
+            <a href="#"class="flat-buttons button-green"><i class="zmdi zmdi-play-circle"></i> PLAY</a>
           </div>
         </div>
       </div>
@@ -1295,6 +1295,9 @@
         volume: 50,
         loop: false,
         hd: true,
+        onPlay: function() {
+          $("#video").children("i").remove();
+        },
         onFinished: function(){
           video.close();
           $("#video").children().remove();
