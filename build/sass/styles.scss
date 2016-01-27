@@ -30,7 +30,6 @@ $column-gutter: rem-calc(15);
 
 @import "../../src/sass/sprite/sprite";
 
-
 .row {
   padding-top: rem-calc(15);
   padding-bottom: rem-calc(15);
@@ -99,6 +98,10 @@ h1, h2, h3, h4, h5, h6, input {
   color: $color-yellow;
 }
 
+.color-red {
+  color: $button-red;
+}
+
 .top-content {
   margin: 1em 0 0;
 }
@@ -106,6 +109,11 @@ h1, h2, h3, h4, h5, h6, input {
   font-weight: 300;
   line-height: rem-calc(46);
   margin-top: .8em;
+}
+
+sup {
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 .fixed.search-visible {
@@ -219,6 +227,9 @@ h1, h2, h3, h4, h5, h6, input {
   i {
     position: absolute;
     top: 45%;
+  }
+  iframe {
+    z-index: 99 !important;
   }
 }
 
@@ -440,6 +451,10 @@ footer {
   .button-yellow {
     width: 100%;
   }
+}
+
+#loadingsponsor {
+	line-height: 300px;
 }
 
 .call-a-sponsor {

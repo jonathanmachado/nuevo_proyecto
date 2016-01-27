@@ -109,7 +109,7 @@
           </div>
           <div class="small-12 columns color-dark-blue">
             <div class="content t-39">
-              $ 726.826
+              $ 726.826 <sup>usd</sup>
             </div>
             <div class="small">
               money collected
@@ -123,12 +123,12 @@
               data
             </div>
           </div>
-          <div class="small-12 columns color-dark-blue">
+          <div class="small-12 columns color-red">
             <div class="content t-39">
-              324.252.424
+              324.252.424 <sup>au</sup>
             </div>
             <div class="small">
-              data
+              Attention units
             </div>
           </div>
           <div class="small-12 columns color-dark-blue">
@@ -954,9 +954,81 @@
         What next on Projects of Humanity
       </div>
     </div>
-    <div class="row show-for-medium-up">
+    <div class="row">
       <div class="small-12 columns">
         <ul class="small-block-grid-6 no-padding-childrens items-slider">
+          <li class="text-center">
+            <img src="images/template/carousel-1.jpg">
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <h6 class="color-dark-blue">Schools of Humanity</h6>
+              </div>
+            </div>
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <a href="#">
+                  <i class="fa fa-star-o"></i> 1254
+                </a>
+                <br class="hide-for-large-up">
+                <a href="#">
+                  <i class="fa fa-heart-o"></i> 106724
+                </a>
+              </div>
+            </div>
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <a href="#" class="flat-buttons button-transparent">FOLLOW</a>
+              </div>
+            </div>
+          </li>
+          <li class="text-center">
+            <img src="images/template/carousel-1.jpg">
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <h6 class="color-dark-blue">Schools of Humanity</h6>
+              </div>
+            </div>
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <a href="#">
+                  <i class="fa fa-star-o"></i> 1254
+                </a>
+                <br class="hide-for-large-up">
+                <a href="#">
+                  <i class="fa fa-heart-o"></i> 106724
+                </a>
+              </div>
+            </div>
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <a href="#" class="flat-buttons button-transparent">FOLLOW</a>
+              </div>
+            </div>
+          </li>
+          <li class="text-center">
+            <img src="images/template/carousel-1.jpg">
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <h6 class="color-dark-blue">Schools of Humanity</h6>
+              </div>
+            </div>
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <a href="#">
+                  <i class="fa fa-star-o"></i> 1254
+                </a>
+                <br class="hide-for-large-up">
+                <a href="#">
+                  <i class="fa fa-heart-o"></i> 106724
+                </a>
+              </div>
+            </div>
+            <div class="row large-collapse">
+              <div class="small-12 columns">
+                <a href="#" class="flat-buttons button-transparent">FOLLOW</a>
+              </div>
+            </div>
+          </li>
           <li class="text-center">
             <img src="images/template/carousel-1.jpg">
             <div class="row large-collapse">
@@ -1104,17 +1176,21 @@
         </ul>
       </div>
     </div>
-    <div class="row blue hide-for-medium-up">
+    <!--<div class="row blue hide-for-medium-up">
         <div class="slider slider-projects">
         </div>
-    </div>
+    </div>-->
   </section>
   <br>
   <br>
   <br>
 
   <div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
-    <div class="suppor">
+    <div id="loadingsponsor">
+      <i class="zmdi zmdi-refresh zmdi-hc-spin"></i>
+    </div>
+
+    <div id="supporModal" class="suppor" style="display:none">
       <h2 id="modal1Title" class="title t-36 color-dark-blue">Suppor this project</h2>
       <div id="modal1Desc" class="row">
         <div class="small-6 medium-3 columns text-center item">
@@ -1291,14 +1367,14 @@
     }
     function setVideo(id) {
       $("#video").okvideo({
-        source: id,
+        source: "47292296",
         volume: 50,
         loop: false,
         hd: true,
         onPlay: function() {
           $("#video").children("i").remove();
         },
-        onFinished: function(){
+        onFinish: function(){
           video.close();
           $("#video").children().remove();
         }
@@ -1308,6 +1384,23 @@
 
     var video;
 		$(function(){
+      $('[href="#modal"]').on('click', function(event){
+        event.preventDefault();
+        modal = $('[data-remodal-id=modal]').remodal({
+          modifier: 'with-white-theme',
+          closeOnEscape: false,
+          closeOnOutsideClick: false
+        });
+
+        modal.open();
+
+        setTimeout(function(){
+          $('#loadingsponsor').hide();
+          $('#supporModal').show();
+        }, 3000);
+
+      });
+
       $('[data-video-id]').on('click', function(event){
         event.preventDefault();
         var id_video = $(this).attr('data-video-id');
@@ -1339,7 +1432,7 @@
       /*
        * Detact Mobile Browser
        */
-      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|Edge|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
          $('html').addClass('ismobile');
       }
 
@@ -1359,7 +1452,7 @@
 
       //Scrollbar for HTML(not mobile) but not for login page
       if (!$('html').hasClass('ismobile')) {
-        scrollbar('html', 'rgba(0,0,0,0.3)', '5px');
+        //scrollbar('html', 'rgba(0,0,0,0.3)', '5px');
       }
 
       $('.slider-top').slick({
@@ -1368,13 +1461,24 @@
         speed: 300
       });
 
-      $('.slider').slick({
+      /*$('.slider').slick({
         infinite: true,
         arrows: false,
         speed: 300,
         variableWidth: true
+      });*/
+
+      $('.items-slider').slick({
+        infinite: true,
+        arrows: false,
+        speed: 300,
+        variableWidth: true,
+        slidesToShow: 6,
+        slidesToScroll: 2
       });
-      $('.slider').slick('slickAdd', getItems('.items-slider'));
+
+      //$('.slider').slick('slickAdd', getItems('.items-slider'));
+
 
 		});
 	</script>
