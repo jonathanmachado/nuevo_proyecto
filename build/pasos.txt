@@ -1,0 +1,54 @@
+Buenas Adri aqui van los pasos para integrar los cambios:
+
+En el Footer cambia el html por este, el cual solo se le agrega la clase links
+
+<ul class="no-bullet links">
+  <li><a href="#">Blog</a></li>
+  <li><a href="#">Sobre Nosotros</a></li>
+  <li><a href="#">Terms & Conds</a></li>
+  <li><a href="#">Quienes Somos</a></li>
+</ul>
+
+en el css @media only screen and (max-width: 40em)
+
+agregale
+
+footer ul.links li {
+  margin-right: 0rem;
+  margin-bottom: .5rem;
+  width: 50%;
+}
+
+los botones de make the diference cambia el html por este
+
+<div class="small-7 large-5 columns small-centered">
+  <a href="#" class="flat-buttons button-become waves-effect waves-button expand">BECOME ONE</a>
+</div>
+
+<div class="small-7 large-5 columns small-centered">
+  <a href="#" class="flat-buttons button-call waves-effect waves-button expand">CALL ONE</a>
+</div>
+
+y para solucionar el boton de play agregas la clase play-button
+
+<a data-remodal-target="modal2" data-video-id="148194424" class="flat-buttons button-green waves-effect waves-button play-button">
+  <i class="zmdi zmdi-play-circle"></i> PLAY
+</a>
+
+y agregas en el css
+
+.play-button {
+  padding: 23px 33px 23px 33px;
+  font-size: 1.4em;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%, -50%);
+  -moz-transform:    translate(-50%, -50%);
+  -ms-transform:     translate(-50%, -50%);
+  -o-transform:      translate(-50%, -50%);
+  transform:         translate(-50%, -50%);
+}
+.play-button:hover {
+  font-size: 1.4em;
+}
